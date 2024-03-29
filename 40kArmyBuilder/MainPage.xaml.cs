@@ -34,7 +34,7 @@
 
         private void ClaytonFunction(object sender, EventArgs e)
         {
-            ClaytonBtn.Text = "Clicked";
+            ClaytonBtn.Text = "Clayton";
         }
     }
 
