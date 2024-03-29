@@ -9,6 +9,17 @@
             InitializeComponent();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            TestLabel.Text = "Success";
+            Window.SizeChanged += (sender, e) =>
+            {
+                count++;
+                TestLabel.Text = count.ToString();
+            };
+        }
+
         private void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
@@ -19,6 +30,11 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+
+        private void ClaytonFunction(object sender, EventArgs e)
+        {
+            ClaytonBtn.Text = "Clicked";
         }
     }
 
