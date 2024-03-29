@@ -1,8 +1,8 @@
 ﻿namespace _40kArmyBuilder
 {
-    public partial class AppShell : Shell
+    public partial class MobileShell : Shell
     {
-        public AppShell()
+        public MobileShell()
         {
             InitializeComponent();
         }

@@ -5,8 +5,11 @@
         public App()
         {
             InitializeComponent();
-
-            MainPage = new AppShell();
+#if IOS || ANDROID
+            MainPage = new MobileShell();
+#else
+            MainPage = new DesktopShell();
+#endif
         }
     }
 }

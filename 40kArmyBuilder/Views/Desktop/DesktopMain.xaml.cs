@@ -1,10 +1,10 @@
 ﻿namespace _40kArmyBuilder
 {
-    public partial class MainPage : ContentPage
+    public partial class DesktopMain : ContentPage
     {
         int count = 0;
 
-        public MainPage()
+        public DesktopMain()
         {
             InitializeComponent();
         }
