@@ -23,6 +23,7 @@ namespace _40kArmyBuilder.Components
                 switch (value)
                 {
                     case "Incursion":
+                        HeaderText.Text += " (1k)";
                         File.WriteAllText($"{FileSystem.Current.CacheDirectory}/IncursionArmies.json", JsonSerializer.Serialize(armies));
                         armies = JsonSerializer.Deserialize<Army[]>(File.ReadAllText($"{FileSystem.Current.CacheDirectory}/IncursionArmies.json"));
                         if (armies != null)
@@ -34,12 +35,14 @@ namespace _40kArmyBuilder.Components
                         };
                         break;
                     case "StrikeForce":
+                        HeaderText.Text += " (2k)";
                         HeaderButton.Clicked += async (sender, e) =>
                         {
                             //await Shell.Current.GoToAsync("//Create/Onslaught");
                         };
                         break;
                     case "Onslaught":
+                        HeaderText.Text += " (3k)";
                         HeaderButton.Clicked += async (sender, e) =>
                         {
                             //await Shell.Current.GoToAsync("//Create/StrikeForce");

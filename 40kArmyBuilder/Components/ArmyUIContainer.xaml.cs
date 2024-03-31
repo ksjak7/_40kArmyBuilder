@@ -37,14 +37,12 @@ namespace _40kArmyBuilder.Components
             {
                 ExpandCloseButton.Text = "▼";
                 foreach (Unit unit in Army.Units)
-                    ArmyContainer.Children.Add(new UnitUIContainer(unit));
+                    UnitContainer.Children.Add(new UnitUIContainer(unit));
             }
             else
             {
                 ExpandCloseButton.Text = "▲";
-                var element = ArmyContainer.Children[0];
-                ArmyContainer.Children.Clear();
-                ArmyContainer.Children.Add(element);
+                UnitContainer.Children.Clear();
             }
 
         }

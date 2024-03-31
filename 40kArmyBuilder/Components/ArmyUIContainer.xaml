@@ -43,6 +43,8 @@
                     Clicked="ExpandUnits"/>
             </FlexLayout>
         </Border>
+        <VerticalStackLayout
+            x:Name="UnitContainer"/>
     </VerticalStackLayout>
     
 </ContentView>

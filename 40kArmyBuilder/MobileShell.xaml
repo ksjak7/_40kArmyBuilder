@@ -14,7 +14,7 @@
         Route="Create" >
         <ShellContent
             ContentTemplate="{DataTemplate local:MobileIncursion}"
-            Route="Incursion" />
+            Route="MobileIncursion" />
     </Tab>
 
 </Shell>
