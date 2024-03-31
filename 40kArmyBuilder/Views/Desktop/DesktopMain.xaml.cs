@@ -12,12 +12,15 @@
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            TestLabel.Text = "Success";
-            Window.SizeChanged += (sender, e) =>
+            await Task.Run(() =>
             {
-                count++;
-                TestLabel.Text = count.ToString();
-            };
+                TestLabel.Text = "Success";
+                Window.SizeChanged += (sender, e) =>
+                {
+                    count++;
+                    TestLabel.Text = count.ToString();
+                };
+            });
         }
 
         private void OnCounterClicked(object sender, EventArgs e)

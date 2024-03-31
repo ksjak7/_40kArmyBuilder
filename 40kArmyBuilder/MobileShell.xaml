@@ -9,6 +9,12 @@
 
     <ShellContent
         ContentTemplate="{DataTemplate local:MobileMain}"
-        Route="MainPage" />
+        Route="MobileMain" />
+    <Tab
+        Route="Create" >
+        <ShellContent
+            ContentTemplate="{DataTemplate local:MobileIncursion}"
+            Route="Incursion" />
+    </Tab>
 
 </Shell>

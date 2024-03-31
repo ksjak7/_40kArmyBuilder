@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:_40kArmyBuilder.Components"
+             x:Class="_40kArmyBuilder.Components.ArmyListContainer">
+    <VerticalStackLayout
+        x:Name="List">
+        <FlexLayout
+            JustifyContent="SpaceBetween"
+            AlignItems="Center"
+            Padding="25"
+            HorizontalOptions="Fill"
+            HeightRequest="60"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" >
+            <Label 
+                x:Name="HeaderText"
+                TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource PrimaryDarkText}}"
+                FontSize="18"
+                FontAttributes="Bold"
+                Margin="5" />
+            <Button 
+                x:Name="HeaderButton"
+                Text="⨭"
+                TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource PrimaryDarkText}}"
+                FontSize="24"
+                FontAttributes="Bold"
+                Margin="5"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+        </FlexLayout>
+        <VerticalStackLayout
+            x:Name="ArmyList"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}"
+            HorizontalOptions="Fill" />
+    </VerticalStackLayout>
+</ContentView>

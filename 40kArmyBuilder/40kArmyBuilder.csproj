@@ -57,12 +57,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\necrons.pdf" />
+	  <None Remove="Resources\Raw\a.pdf" />
+	  <None Remove="resources\raw\index.html" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Components\UnitUIContainer.xaml.cs">
+	    <DependentUpon>UnitUIContainer.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\ArmyUIContainer.xaml.cs">
+	    <DependentUpon>ArmyUIContainer.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\ArmyListContainer.xaml.cs">
+	    <DependentUpon>ArmyListContainer.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Desktop\DesktopMain.xaml.cs">
 	    <DependentUpon>DesktopMain.xaml</DependentUpon>
 	  </Compile>
@@ -72,13 +87,28 @@
 	  <Compile Update="DesktopShell.xaml.cs">
 	    <DependentUpon>DesktopShell.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\Mobile\Create\MobileIncursion.xaml.cs">
+	    <DependentUpon>MobileIncursion.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Mobile\MobileMain.xaml.cs">
 	    <DependentUpon>MobileMain.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Components\UnitUIContainer.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\ArmyUIContainer.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\ArmyListContainer.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MobileShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Mobile\Create\MobileIncursion.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Mobile\MobileMain.xaml">
