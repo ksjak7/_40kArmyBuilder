@@ -6,6 +6,9 @@
         {
             InitializeComponent();
         }
+        private void RedirectMobileCreate(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//MobileCreate");
+        }
     }
-
 }

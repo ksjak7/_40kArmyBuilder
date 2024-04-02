@@ -1,65 +1,58 @@
 ﻿using _40kArmyBuilder.Models;
+using System.ComponentModel;
 using System.Text.Json;
 
 namespace _40kArmyBuilder.Components
 {
     public partial class ArmyListContainer : ContentView
     {
-        public BindableProperty ArmyTypeProperty = BindableProperty.Create(nameof(ArmyType), typeof(string), typeof(string), "");
-        public Army[]? armies = [
-            new Army("ArmyOne", "Chaos Space Marines", 
-                [
-                new Unit("Morvenn Vahl", "Adeptas Sororitas", 135, 8, 6, 2, 8, 6, 2, [], [], [], 4, [], true, 1), 
-                new Unit("Morvenn Vahl", "Adeptas Sororitas", 135, 8, 6, 2, 8, 6, 2, [], [], [], 4, [], true, 1)
-                ]), 
-            new Army("ArmyTwo", "T'au", [])];
-        public string ArmyType
+        readonly static Dictionary<int, string> armyTypeMap = new()
         {
-            get => (string)GetValue(ArmyTypeProperty);
+            { 0, "Incursion" },
+            { 1, "StrikeForce" },
+            { 2, "Onslaught" },
+            { 3, "Custom" }
+        };
+
+        public BindableProperty ArmyTypeProperty = BindableProperty.Create(nameof(ArmyType), typeof(int), typeof(int), 0);
+        //File.WriteAllText($"{FileSystem.Current.CacheDirectory}/{armyTypeMap[value]}Armies.json", JsonSerializer.Serialize(armies));
+        static Army[]? currentArmyList = null;
+        readonly static string rootPath = FileSystem.Current.CacheDirectory;
+        public int ArmyType
+        {
+            get => (int)GetValue(ArmyTypeProperty);
             set
             {
                 SetValue(ArmyTypeProperty, value);
-                HeaderText.Text = value;
-                switch (value)
-                {
-                    case "Incursion":
-                        HeaderText.Text += " (1k)";
-                        File.WriteAllText($"{FileSystem.Current.CacheDirectory}/IncursionArmies.json", JsonSerializer.Serialize(armies));
-                        armies = JsonSerializer.Deserialize<Army[]>(File.ReadAllText($"{FileSystem.Current.CacheDirectory}/IncursionArmies.json"));
-                        if (armies != null)
-                            foreach (Army army in armies)
-                                ArmyList.Children.Add(new ArmyUIContainer(army));
-                        HeaderButton.Clicked += async (sender, e) =>
-                        {
-                            await Shell.Current.GoToAsync("//Create/MobileIncursion");
-                        };
-                        break;
-                    case "StrikeForce":
-                        HeaderText.Text += " (2k)";
-                        HeaderButton.Clicked += async (sender, e) =>
-                        {
-                            //await Shell.Current.GoToAsync("//Create/Onslaught");
-                        };
-                        break;
-                    case "Onslaught":
-                        HeaderText.Text += " (3k)";
-                        HeaderButton.Clicked += async (sender, e) =>
-                        {
-                            //await Shell.Current.GoToAsync("//Create/StrikeForce");
-                        }; ;
-                        break;
-                    case "Custom":
-                        HeaderButton.Clicked += async (sender, e) =>
-                        {
-                            //await Shell.Current.GoToAsync("//Create/Custom");
-                        };
-                        break;
-                }
+                HeaderText.Text = armyTypeMap[value];
+                ArmyList.Children.Clear();
+                if (File.Exists($"{rootPath}/{armyTypeMap[value]}Armies.json"))
+                    currentArmyList = JsonSerializer.Deserialize<Army[]>(File.ReadAllText($"{rootPath}/{armyTypeMap[value]}Armies.json"));
+                else
+                    currentArmyList = null;
+                if (currentArmyList != null)
+                    foreach (Army army in currentArmyList)
+                        ArmyList.Children.Add(new ArmyUIContainer(army));
             }
         }
         public ArmyListContainer()
         {
             InitializeComponent();
+            ArmyType = 0;
+            LeftButton.Clicked += (sender, e) => 
+            {
+                if (ArmyType <= 0)
+                    ArmyType = armyTypeMap.Count - 1;
+                else
+                    ArmyType--;
+            };
+            RightButton.Clicked += (sender, e) => 
+            {
+                if (ArmyType >= armyTypeMap.Count - 1)
+                    ArmyType = 0;
+                else 
+                    ArmyType++;
+            };
         }
     }
 }

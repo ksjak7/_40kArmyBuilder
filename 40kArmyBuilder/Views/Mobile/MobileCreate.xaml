@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_40kArmyBuilder.MobileCreate">
+
+    <Grid 
+        RowDefinitions="*,Auto"
+        BackgroundColor="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource BackgroundDark}}">
+        <ScrollView>
+            <VerticalStackLayout>
+                <Label
+                    Text="Army Name"/>
+                <Entry
+                    x:Name="ArmyNameInput" />
+                <Label
+                    Text="Faction"/>
+                <Entry
+                    x:Name="FactionInput" />
+                <Label
+                    Text="Faction Size"/>
+                <Entry
+                    x:Name="SizeInput" />
+                <Label
+                    x:Name="Output"
+                    Text="Output: "/>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Button 
+            Grid.Row="1"
+            Text="Finalize"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
+            CornerRadius="0"
+            HorizontalOptions="Fill"
+            Clicked="FinalizeArmy" />
+    </Grid>
+</ContentPage>

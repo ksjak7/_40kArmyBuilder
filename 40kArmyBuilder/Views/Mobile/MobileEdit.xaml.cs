@@ -1,8 +1,8 @@
 ﻿namespace _40kArmyBuilder
 {
-    public partial class MobileIncursion : ContentPage
+    public partial class MobileEdit : ContentPage
     {
-        public MobileIncursion()
+        public MobileEdit()
         {
             InitializeComponent();
         }

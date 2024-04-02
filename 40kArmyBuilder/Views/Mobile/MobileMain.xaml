@@ -3,26 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:_40kArmyBuilder.Components"
              x:Class="_40kArmyBuilder.MobileMain">
-
-    <ScrollView BackgroundColor="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource BackgroundDark}}">
-        <VerticalStackLayout
-            HorizontalOptions="Fill" >
-            <Image
-                Source="necron_header.jpg"
-                HorizontalOptions="Fill"
-                Aspect="AspectFit" />
-            <components:ArmyListContainer
-                x:Name="Incursion"
-                ArmyType="Incursion"/>
-            <components:ArmyListContainer
-                x:Name="StrikeForce"
-                ArmyType="StrikeForce"/>
-            <components:ArmyListContainer
-                x:Name="Onslaught"
-                ArmyType="Onslaught"/>
-            <components:ArmyListContainer
-                x:Name="Custom"
-                ArmyType="Custom"/>
-        </VerticalStackLayout>
-    </ScrollView>
+    <Grid
+        RowDefinitions="*,Auto"
+        BackgroundColor="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource BackgroundDark}}">
+        <ScrollView >
+            <VerticalStackLayout
+                HorizontalOptions="Fill" >
+                <Image
+                    Source="necron_header.jpg"
+                    HorizontalOptions="Fill"
+                    Aspect="AspectFit" />
+                <components:ArmyListContainer/>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Button 
+            Grid.Row="1"
+            Text="Create ⨭"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
+            CornerRadius="0"
+            HorizontalOptions="Fill"
+            Clicked="RedirectMobileCreate" />
+    </Grid>
 </ContentPage>

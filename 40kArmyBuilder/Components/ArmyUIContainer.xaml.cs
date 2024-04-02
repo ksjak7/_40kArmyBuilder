@@ -1,7 +1,5 @@
 ﻿using _40kArmyBuilder.Models;
 using System.Text.Json;
-using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
 
 namespace _40kArmyBuilder.Components
 {

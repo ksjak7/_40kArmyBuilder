@@ -87,8 +87,11 @@
 	  <Compile Update="DesktopShell.xaml.cs">
 	    <DependentUpon>DesktopShell.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\Mobile\Create\MobileIncursion.xaml.cs">
-	    <DependentUpon>MobileIncursion.xaml</DependentUpon>
+	  <Compile Update="Views\Mobile\MobileEdit.xaml.cs">
+	    <DependentUpon>MobileEdit.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Mobile\MobileCreate.xaml.cs">
+	    <DependentUpon>MobileCreate.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Mobile\MobileMain.xaml.cs">
 	    <DependentUpon>MobileMain.xaml</DependentUpon>
@@ -108,7 +111,10 @@
 	  <MauiXaml Update="MobileShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Mobile\Create\MobileIncursion.xaml">
+	  <MauiXaml Update="Views\Mobile\MobileEdit.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Mobile\MobileCreate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Mobile\MobileMain.xaml">
