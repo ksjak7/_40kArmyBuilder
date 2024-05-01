@@ -62,4 +62,28 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Views\Desktop\DesktopMain.xaml.cs">
+	    <DependentUpon>DesktopMain.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="MobileShell.xaml.cs">
+	    <DependentUpon>MobileShell.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="DesktopShell.xaml.cs">
+	    <DependentUpon>DesktopShell.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Mobile\MobileMain.xaml.cs">
+	    <DependentUpon>MobileMain.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="MobileShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Mobile\MobileMain.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
