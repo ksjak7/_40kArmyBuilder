@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:warhammer_army_app/models/weapon.dart';
 
 class Unit {
@@ -40,7 +38,7 @@ class Unit {
   );
 
   static Unit fromJson(Map<String, dynamic> jsonData) {
-    List<Weapon> rangedWeapons = []; 
+    List<Weapon> rangedWeapons = [];
     List<Weapon> meleeWeapons = [];
     List<String> keywords = [];
     List<String> abilities = [];
@@ -72,7 +70,6 @@ class Unit {
       jsonData['invulnerableSave'],
       abilities,
       jsonData['isEpicHero'],
-      jsonData['unitSize']
-    );
+      jsonData['unitSize']);
   }
 }

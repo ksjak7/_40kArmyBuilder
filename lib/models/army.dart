@@ -1,10 +1,10 @@
-import 'dart:convert';
-
+import 'package:warhammer_army_app/enums.dart';
 import 'package:warhammer_army_app/models/unit.dart';
-
+ 
 class Army {
   final String name;
   final String faction;
+  final ArmyTypes type;
   List<Unit> units;
 
   int get points => _getPoints();
@@ -12,19 +12,21 @@ class Army {
   Army(
     this.name,
     this.faction,
+    this.type,
     this.units
   );
 
   static Army fromJson(Map<String, dynamic> jsonData) {
     var rawData = jsonData['units'];
-    List<Unit> u = []; 
+    List<Unit> unitList = []; 
     for (var object in rawData) {
-      u.add(Unit.fromJson(object));
+      unitList.add(Unit.fromJson(object));
     }
     return Army(
       jsonData['name'],
       jsonData['faction'],
-      u
+      ArmyTypes.values[jsonData['type']],
+      unitList
     );
   }
 
@@ -39,8 +41,8 @@ class Army {
       return 0;
     }
     int result = 0;
-    for (Unit u in units) {
-      result += u.points;
+    for (Unit unit in units) {
+      result += unit.points;
     }
     return result;
   }
