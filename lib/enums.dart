@@ -1,6 +1,40 @@
-enum ArmyTypes {
+enum ArmyType {
   incursion,
   strikeForce,
   onslaught,
-  custom
+  custom,
+}
+
+enum Faction {
+  //marines
+  adeptusAstartes,
+  blackTemplars,
+  bloodAngels,
+  darkAngels,
+  deathwatch,
+  greyKnights,
+  spaceWolves,
+  //chaos
+  chaosDaemons,
+  deathGuard,
+  hereticAstartes,
+  questorTraitoris,
+  thousandSons,
+  worldEaters,
+  //xenos
+  aeldari,
+  drukhari,
+  genestealerCults,
+  leaguesOfVotann,
+  necrons,
+  orks,
+  tauEmpire,
+  tyranids,
+  //imperium
+  adeptaSororitas,
+  adeptusCustodes,
+  adeptusMechanicus,
+  astraMilitarum,
+  imperialKnights,
+  imperiumOfMan,
 }

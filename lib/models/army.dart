@@ -1,10 +1,10 @@
-import 'package:warhammer_army_app/enums.dart';
-import 'package:warhammer_army_app/models/unit.dart';
- 
+import '../enums.dart';
+import 'unit.dart';
+
 class Army {
   final String name;
   final String faction;
-  final ArmyTypes type;
+  final ArmyType type;
   List<Unit> units;
 
   int get points => _getPoints();
@@ -25,7 +25,7 @@ class Army {
     return Army(
       jsonData['name'],
       jsonData['faction'],
-      ArmyTypes.values[jsonData['type']],
+      ArmyType.values[jsonData['type']],
       unitList
     );
   }

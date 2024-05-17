@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:warhammer_army_app/components/army_list.dart';
-import 'package:warhammer_army_app/enums.dart';
+
+import 'components/army_list.dart';
+import 'enums.dart';
 
 void main() {
   runApp(const MyApp());
@@ -82,22 +83,24 @@ class _MyHomePageState extends State<MyHomePage> {
               labelPadding: const EdgeInsets.all(0),
               tabs: [
                 Tab(
-                    icon: SvgPicture.asset(
-                      'assets/icons/NavBar/stat_1.svg',
-                      width: 36,
-                      height: 36,
-                    ),
-                    text: "Incursion"),
-                Tab(
-                    icon: SvgPicture.asset(
-                      'assets/icons/NavBar/stat_2.svg',
-                      width: 36,
-                      height: 36,
-                    ),
-                    text: "Strike Force"),
+                  icon: SvgPicture.asset(
+                    'assets/navbar/stat_1.svg',
+                    width: 36,
+                    height: 36,
+                  ),
+                  text: "Incursion",
+                ),
                 Tab(
                   icon: SvgPicture.asset(
-                    'assets/icons/NavBar/stat_3.svg',
+                    'assets/navbar/stat_2.svg',
+                    width: 36,
+                    height: 36,
+                  ),
+                  text: "Strike Force",
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    'assets/navbar/stat_3.svg',
                     width: 36,
                     height: 36,
                   ),
@@ -105,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Tab(
                   icon: SvgPicture.asset(
-                    'assets/icons/NavBar/stat_0.svg',
+                    'assets/navbar/stat_0.svg',
                     width: 36,
                     height: 36,
                   ),
@@ -118,10 +121,10 @@ class _MyHomePageState extends State<MyHomePage> {
               height: size.height,
               child: TabBarView(
                 children: [
-                  armyList(context, ArmyTypes.incursion, size),
-                  armyList(context, ArmyTypes.strikeForce, size),
-                  armyList(context, ArmyTypes.onslaught, size),
-                  armyList(context, ArmyTypes.custom, size),
+                  armyList(context, ArmyType.incursion, size),
+                  armyList(context, ArmyType.strikeForce, size),
+                  armyList(context, ArmyType.onslaught, size),
+                  armyList(context, ArmyType.custom, size),
                 ],
               ),
             ),

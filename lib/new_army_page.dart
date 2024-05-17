@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'components/faction_card.dart';
+import 'enums.dart';
+
 class NewArmyPage extends StatefulWidget {
   const NewArmyPage({super.key, required this.title});
 
@@ -28,7 +31,7 @@ class _NewArmyPage extends State<NewArmyPage> {
               Tab(
                 text: 'Marines',
                 icon: SvgPicture.asset(
-                  'assets/icons/FactionIcons/SpaceMarines.svg',
+                  'assets/tabbar/marines.svg',
                   width: 36,
                   height: 36,
                   colorFilter:
@@ -38,7 +41,7 @@ class _NewArmyPage extends State<NewArmyPage> {
               Tab(
                 text: 'Chaos',
                 icon: SvgPicture.asset(
-                  'assets/icons/FactionIcons/Chaos.svg',
+                  'assets/tabbar/chaos.svg',
                   width: 36,
                   height: 36,
                   colorFilter:
@@ -48,7 +51,7 @@ class _NewArmyPage extends State<NewArmyPage> {
               Tab(
                 text: 'Xenos',
                 icon: SvgPicture.asset(
-                  'assets/icons/FactionIcons/Drukhari1.svg',
+                  'assets/tabbar/drukhari.svg',
                   width: 36,
                   height: 36,
                   colorFilter:
@@ -58,7 +61,7 @@ class _NewArmyPage extends State<NewArmyPage> {
               Tab(
                 text: 'Imperium',
                 icon: SvgPicture.asset(
-                  'assets/icons/FactionIcons/Imperium.svg',
+                  'assets/tabbar/imperium.svg',
                   width: 36,
                   height: 36,
                   colorFilter:
@@ -71,7 +74,7 @@ class _NewArmyPage extends State<NewArmyPage> {
         body: TabBarView(
           children: [
             Center(child: Text(widget.title)),
-            const Center(child: Text("Hello")),
+            factionCard(context, Faction.adeptusAstartes),
             const Center(child: Text('CATS')),
             const Center(child: Text('BIRDS')),
           ],

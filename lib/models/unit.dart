@@ -1,4 +1,4 @@
-import 'package:warhammer_army_app/models/weapon.dart';
+import 'weapon.dart';
 
 class Unit {
   final String name;
