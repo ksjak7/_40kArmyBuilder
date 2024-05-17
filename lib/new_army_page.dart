@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:warhammer_army_app/components/faction_list.dart';
 
-import 'components/faction_card.dart';
 import 'enums.dart';
 
 class NewArmyPage extends StatefulWidget {
@@ -73,10 +73,42 @@ class _NewArmyPage extends State<NewArmyPage> {
         ),
         body: TabBarView(
           children: [
-            Center(child: Text(widget.title)),
-            factionCard(context, Faction.adeptusAstartes),
-            const Center(child: Text('CATS')),
-            const Center(child: Text('BIRDS')),
+            //marines
+            factionList(context, [
+              Faction.adeptusAstartes,
+              Faction.blackTemplars,
+              Faction.bloodAngels,
+              Faction.darkAngels,
+              Faction.deathwatch,
+              Faction.greyKnights,
+              Faction.spaceWolves,
+            ]),
+            //chaos
+            factionList(context, [
+              Faction.chaosDaemons,
+              Faction.deathGuard,
+              Faction.hereticAstartes,
+              Faction.thousandSons,
+              Faction.worldEaters,
+            ]),
+            //xenos
+            factionList(context, [
+              Faction.aeldari,
+              Faction.drukhari,
+              Faction.genestealerCults,
+              Faction.leaguesOfVotann,
+              Faction.necrons,
+              Faction.orks,
+              Faction.tauEmpire,
+              Faction.tyranids,
+            ]),
+            //imperium
+            factionList(context, [
+              Faction.adeptaSororitas,
+              Faction.adeptusCustodes,
+              Faction.adeptusMechanicus,
+              Faction.astraMilitarum,
+            ]),
           ],
         ),
       ),

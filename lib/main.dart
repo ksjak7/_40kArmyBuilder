@@ -62,11 +62,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Column> armyLists = [];
-  Column current = const Column();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    List<Widget> pages = [];
+    for (ArmyType armyType in ArmyType.values) {
+      pages.add(
+        armyList(context, armyType, size),
+      );
+    }
+
     return DefaultTabController(
       length: 4,
       child: Builder(
@@ -119,14 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
             body: SizedBox(
               width: size.width,
               height: size.height,
-              child: TabBarView(
-                children: [
-                  armyList(context, ArmyType.incursion, size),
-                  armyList(context, ArmyType.strikeForce, size),
-                  armyList(context, ArmyType.onslaught, size),
-                  armyList(context, ArmyType.custom, size),
-                ],
-              ),
+              child: TabBarView(children: pages),
             ),
           );
         },

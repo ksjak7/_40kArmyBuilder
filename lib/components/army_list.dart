@@ -29,7 +29,8 @@ Future<CustomScrollView> armyListBuilder(
     BuildContext context, ArmyType armyType, Size screen) async {
   Directory directory = await getApplicationDocumentsDirectory();
   var file = File('${directory.path}/armies.json');
-  file.writeAsStringSync('[{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[{"name": "Legionnaire", "faction":"Chaos Space Marines", "points": 110, "movement": 6, "toughness": 4, "save": 3, "wounds": 2, "leadership": 1, "objectiveControl": 1, "rangedWeapons": [], "meleeWeapons": [], "keywords": [], "invulnerableSave": -1, "abilities": [], "isEpicHero": false, "unitSize": 10}]},{"name":"Clayton\'s Army","faction":"Necrons","type":1,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]}]');
+  file.writeAsStringSync(
+      '[{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[{"name": "Legionnaire", "faction":"Chaos Space Marines", "points": 110, "movement": 6, "toughness": 4, "save": 3, "wounds": 2, "leadership": 1, "objectiveControl": 1, "rangedWeapons": [], "meleeWeapons": [], "keywords": [], "invulnerableSave": -1, "abilities": [], "isEpicHero": false, "unitSize": 10}]},{"name":"Clayton\'s Army","faction":"Necrons","type":1,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]},{"name":"Alec\'s Army","faction":"Chaos Space Marines","type":0,"units":[]}]');
   List rawData;
   try {
     rawData = json.decode(file.readAsStringSync()) as List;
@@ -78,9 +79,7 @@ Future<CustomScrollView> armyListBuilder(
 
   for (Army army in armies) {
     if (context.mounted) {
-      widgets.add(
-        armyCard(context, army)
-      );
+      widgets.add(armyCard(context, army));
     }
   }
 
